@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>ARK: Survival Ascended Wiki</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="logo">ARK WIKI</div>
+    <nav>
+        <button onclick="showPage('main')">Головна</button>
+        <button onclick="showPage('mobs')">Моби</button>
+        <button onclick="showPage('crafts')">Крафти</button>
+    </nav>
+</header>
+
+<!-- ================= ГОЛОВНА ================= -->
+<section id="main" class="page active">
+    <img class="banner" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2399830/d934813ca531af0fce69fe36bc972f1c90d1aa19/header.jpg?t=1764880598">
+    <h1 style="text-align: center;">ARK: Survival Ascended</h1>
+    <p style="text-align: center;">
+        ARK: Survival Ascended — оновлена версія культової гри виживання.
+        ARK: Survival Ascended — це ремейк і модернізована версія культової гри ARK: Survival Evolved, створена студією Studio Wildcard на базі Unreal Engine 5. Гра поєднує жанри виживання, відкритого світу та пісочниці, і доступна на ПК, Xbox Series X/S та PlayStation 5.
+
+Гравець опиняється на величезному острові, населеному динозаврами та іншими доісторичними істотами. Основна задача — вижити, контролюючи голод, спрагу, здоров’я та енергію персонажа. Для цього потрібно збирати ресурси (дерево, каміння, метал, шкіра, волокна), полювати на тварин, готувати їжу, виготовляти інструменти, зброю та будівлі.
+
+Важливою особливістю є приручення динозаврів та інших істот. Приручені істоти можуть допомагати в бою, транспортуванні ресурсів або добуванні матеріалів. Кожна істота має унікальні характеристики та потреби, а для приручення іноді потрібен особливий підхід.
+
+Гра також включає будівництво баз та укріплень, які захищають гравця від хижаків і ворогів. В ARK: Survival Ascended покращена графіка, освітлення, текстури та анімації порівняно з оригіналом, а також оптимізована механіка взаємодії з предметами та істотами.
+
+Гравці можуть грати як в одиночку, так і в мультиплеєрі, об’єднуючись в племена, щоб захищати територію, обмінюватися ресурсами та разом боротися з потужними босами. Гра поєднує виживання, стратегічне планування та екшн, пропонуючи глибокий і насичений ігровий процес.
+    </p>
+</section>
+
+<!-- ================= МОБИ ================= -->
+<section id="mobs" class="page">
+    <h2>Істоти</h2>
+
+    <div class="controls">
+        <input id="searchInput" placeholder="Пошук істоти..." onkeyup="searchMobs()">
+        <div class="filters">
+            <button onclick="filterMobs('all')">Всі</button>
+            <button onclick="filterMobs('land')">Суша</button>
+            <button onclick="filterMobs('water')">Вода</button>
+            <button onclick="filterMobs('air')">Повітря</button>
+            <button onclick="filterMobs('boss')">Боси</button>
+        </div>
+    </div>
+
+    <div class="grid mobs-grid">
+        <button class="card epic" data-type="land" onclick="showMob('trex')">T-Rex</button>
+        <button class="card legendary" data-type="water" onclick="showMob('mosasaurus')">Мозазавр</button>
+        <button class="card epic" data-type="air" onclick="showMob('argentavis')">Аргентавіс</button>
+        <button class="card legendary" data-type="land" onclick="showMob('giga')">Гіганотозавр</button>
+        <button class="card boss" data-type="boss" onclick="showMob('dragon')">Дракон Бос</button>
+        <button class="card epic" data-type="air" onclick="showMob('rockdrake')">Рок Дрейк</button>
+        <button class="card legendary" data-type="air" onclick="showMob('firewyvern')">Вогняний Вайверн</button>
+        <button class="card legendary" data-type="air" onclick="showMob('icewyvern')">Крижаний Вайверн</button>
+        <button class="card legendary" data-type="air" onclick="showMob('poisonwyvern')">Отруйний Вайверн</button>
+        <button class="card legendary" data-type="air" onclick="showMob('lightningwyvern')">Блискавичний Вайверн</button>
+        <button class="card epic" data-type="air" onclick="showMob('pteranodon')">Птеранодон</button>
+        <button class="card rare" data-type="water" onclick="showMob('ichtyosaurus')">Іхтіозавр</button>
+        <button class="card epic" data-type="land" onclick="showMob('carchadonto')">Кархадонтозавр</button>
+        <button class="card epic" data-type="land" onclick="showMob('therizinosaurus')">Теризинозавр</button>
+        <button class="card epic" data-type="water" onclick="showMob('plesiosaurus')">Плезіозавр</button>
+        <button class="card epic" data-type="water" onclick="showMob('dunkleosteus')">Дунклеостеус</button>
+        <button class="card epic" data-type="land" onclick="showMob('dreadnoughtus')">Дредноутус</button>
+        <button class="card epic" data-type="land" onclick="showMob('megaraptor')">Мегараптор</button>
+        <button class="card epic" data-type="land" onclick="showMob('ceratosaurus')">Цератозавр</button>
+        <button class="card rare" data-type="land" onclick="showMob('triceratops')">Трицератопс</button>
+
+    </div>
+</section>
+<!-- =============== T-REX =============== -->
+<section id="mob-trex" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+
+    <h2>🦖 Tyrannosaurus Rex</h2>
+
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/4/42/Dossier_Rex.png/revision/latest?cb=20180224125224&path-prefix=ru" alt="Tyrannosaurus Rex">
+
+
+    <div class="info-box">
+        <p>
+            <strong>Tyrannosaurus Rex</strong> — один із найпотужніших хижаків у
+            <strong>ARK: Survival Ascended</strong>. Це легендарна істота пізньої гри,
+            яка використовується для боїв з босами, PvP та захисту баз.
+        </p>
+    </div>
+
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Роль:</strong> Боси, PvP, оборона</li>
+    </ul>
+
+    <h3>⚔️ Бойові особливості</h3>
+    <div class="stat-grid">
+        <div class="stat-card">❤️ Величезний HP</div>
+        <div class="stat-card">🦷 Колосальний урон</div>
+        <div class="stat-card">🛡️ Витримує босів</div>
+        <div class="stat-card">🐢 Повільний</div>
+    </div>
+
+    <h3>🪤 Приручення</h3>
+    <p>
+        Rex приручається нокаут-методом. Найкраще використовувати пастку
+        з кам’яних або металевих воріт.
+    </p>
+
+    <ul class="info-list">
+        <li><strong>Зброя:</strong> Tranquilizer Darts / Arrows</li>
+        <li><strong>Найкраща їжа:</strong> Exceptional Kibble</li>
+        <li><strong>Альтернатива:</strong> Raw Mutton</li>
+    </ul>
+
+    <h3>👑 Використання проти босів</h3>
+    <p>
+        Стандартна армія для босів:
+        <strong>18–19 Rex + Yutyrannus</strong>.
+    </p>
+
+    <h3>🧬 Різновиди</h3>
+    <ul class="info-list">
+        <li>Alpha Rex (не приручається)</li>
+        <li>Tek Rex</li>
+        <li>X-Rex / R-Rex</li>
+        <li>Corrupted Rex</li>
+    </ul>
+
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>
+        T-Rex — символ сили ARK. Повільний, але смертельно небезпечний.
+        Обов’язковий динозавр для пізньої гри.
+    </div>
+</section>
+
+<!-- =============== Mosasaurus =============== -->
+<section id="mob-mosasaurus" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+
+    <h2>🌊 Mosasaurus</h2>
+
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/6/6e/Dossier_Mosasaurus.jpg/revision/latest/scale-to-width-down/268?cb=20151116122811&path-prefix=ru" alt="Mosasaurus">
+
+    <div class="info-box">
+        <p>
+            <strong>Mosasaurus</strong> — це абсолютний володар океанів у
+            <strong>ARK: Survival Ascended</strong>. Найбільший морський хижак гри,
+            який поєднує величезну силу, високу швидкість та колосальний запас здоров’я.
+            Mosasaurus є ключовою істотою для підводних досліджень і морських боїв.
+        </p>
+    </div>
+
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Морський хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Mosasaurus Saddle</li>
+        <li><strong>Роль:</strong> Підводний бій, транспорт, захист</li>
+    </ul>
+
+    <h3>⚔️ Бойові особливості</h3>
+    <div class="stat-grid">
+        <div class="stat-card">❤️ Дуже великий HP</div>
+        <div class="stat-card">🦷 Потужний урон</div>
+        <div class="stat-card">🌊 Висока швидкість у воді</div>
+        <div class="stat-card">🚫 Не виходить на сушу</div>
+    </div>
+
+    <h3>🧠 Поведінка</h3>
+    <p>
+        У дикій природі Mosasaurus патрулює глибокі води океану та атакує більшість істот,
+        включно з гравцями на водних транспортних засобах. Він надзвичайно небезпечний
+        у відкритому морі та майже не має природних ворогів.
+    </p>
+
+    <h3>🪤 Приручення</h3>
+    <p>
+        Mosasaurus приручається <strong>нокаут-методом</strong>, але процес є складним через
+        його агресивність і глибоке середовище проживання. Рекомендується використовувати
+        <strong>підводні пастки</strong> або утримувати його біля дна.
+    </p>
+
+    <ul class="info-list">
+        <li><strong>Приспання:</strong> Tranquilizer Darts (з Harpoon Gun)</li>
+        <li><strong>Найкраща їжа:</strong> Exceptional Kibble</li>
+        <li><strong>Альтернатива:</strong> Raw Prime Meat</li>
+    </ul>
+
+    <h3>🐣 Розведення</h3>
+    <p>
+        Mosasaurus можна розводити під водою. Для селекції зазвичай підвищують
+        <strong>HP</strong>, <strong>Melee Damage</strong> та <strong>Stamina</strong>,
+        щоб створити ідеального морського бійця.
+    </p>
+
+    <h3>🌊 Використання</h3>
+    <p>
+        Mosasaurus ідеально підходить для:
+    </p>
+    <ul class="info-list">
+        <li>Дослідження глибин океану</li>
+        <li>Боїв з іншими морськими істотами</li>
+        <li>Захисту підводних баз</li>
+        <li>Полювання на Tusoteuthis та Plesiosaur</li>
+    </ul>
+
+    <h3>🧬 Різновиди</h3>
+    <ul class="info-list">
+        <li>Alpha Mosasaurus (не приручається)</li>
+        <li>Tek Mosasaurus</li>
+        <li>X-Mosasaurus</li>
+        <li>Corrupted Mosasaurus</li>
+    </ul>
+
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>
+        Mosasaurus — це король океану в ARK. Якщо Rex домінує на суші,
+        то Mosasaurus беззаперечно панує у воді. Незамінний для морських експедицій
+        та пізньої гри.
+    </div>
+</section>
+<!-- =============== Argentavis =============== -->
+ <section id="mob-argentavis" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+
+    <h2>🦅 Argentavis</h2>
+
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/6/64/%D0%94%D0%BE%D1%81%D1%8C%D0%B5_%D0%BD%D0%B0_%D0%90%D1%80%D0%B3%D0%B5%D0%BD%D1%82%D0%B0%D0%B2%D0%B8%D1%81%D0%B0.png/revision/latest/scale-to-width-down/268?cb=20180324110237&path-prefix=ru" alt="Argentavis">
+
+    <div class="info-box">
+        <p>
+            <strong>Argentavis</strong> — один із найкорисніших літаючих динозаврів у
+            <strong>ARK: Survival Ascended</strong>. Це універсальний повітряний транспорт,
+            який поєднує бойові можливості, вантажопідйомність та мобільність.
+        </p>
+    </div>
+
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Літаючий хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Роль:</strong> Транспорт, фарм, PvE</li>
+    </ul>
+
+    <h3>⚔️ Особливості</h3>
+    <div class="stat-grid">
+        <div class="stat-card">🪽 Політ на далекі дистанції</div>
+        <div class="stat-card">📦 Зменшена вага ресурсів</div>
+        <div class="stat-card">🩸 Регенерація після вбивств</div>
+        <div class="stat-card">🐢 Повільніший за Pteranodon</div>
+    </div>
+
+    <h3>🪤 Приручення</h3>
+    <ul class="info-list">
+        <li><strong>Зброя:</strong> Tranquilizer Arrows / Darts</li>
+        <li><strong>Найкраща їжа:</strong> Superior Kibble</li>
+        <li><strong>Порада:</strong> Використовуй пастку</li>
+    </ul>
+
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>
+        Argentavis — найкращий універсальний літаючий динозавр.
+        Обов’язковий для кожного гравця.
+    </div>
+</section>
+
+<!-- =============== Giganotosaurus =============== -->
+<section id="mob-giga" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🦖 Giganotosaurus</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/c/c5/Dossier_Gigantosaurus.png/revision/latest?cb=20151116113652&path-prefix=ru" alt="Giganotosaurus">
+    <div class="info-box">
+        <p>Giganotosaurus — величезний наземний хижак, сильніший за T-Rex. Використовується для PvP та боїв з босами.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Giga Saddle</li>
+        <li><strong>Роль:</strong> PvP, бої з босами</li>
+    </ul>
+    <h3>⚔️ Бойові характеристики</h3>
+    <div class="stat-grid">
+        <div class="stat-card">❤️ Дуже великий HP</div>
+        <div class="stat-card">🦷 Колосальний урон</div>
+        <div class="stat-card">🐢 Повільний</div>
+        <div class="stat-card">🛡️ Може протистояти босам</div>
+    </div>
+    <h3>🪤 Приручення</h3>
+    <p>Нокаут-метод. Рекомендується пастка з металевих воріт.</p>
+    <ul class="info-list">
+        <li><strong>Приспання:</strong> Tranquilizer Darts / Arrows</li>
+        <li><strong>Найкраща їжа:</strong> Exceptional Kibble</li>
+        <li><strong>Альтернатива:</strong> Raw Prime Meat</li>
+    </ul>
+    <h3>🧬 Різновиди</h3>
+    <ul class="info-list">
+        <li>Alpha Giga (не приручається)</li>
+        <li>Tek Giga</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Найсильніший наземний хижак, незамінний у пізніх боях та PvP.
+    </div>
+</section>
+
+<!-- =============== Dragon Boss =============== -->
+<section id="mob-dragon" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🐉 Dragon Boss</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/0/05/Dossier_Dragon.png/revision/latest/scale-to-width-down/268?cb=20161030175359&path-prefix=ru" alt="Dragon Boss">
+    <div class="info-box">
+        <p>Дракон — один з фінальних босів ARK. Небезпечний у бою і потребує підготовки.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Бос</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Неможливо</li>
+        <li><strong>Роль:</strong> Фінальний бос</li>
+    </ul>
+    <h3>⚔️ Бойові характеристики</h3>
+    <div class="stat-grid">
+        <div class="stat-card">🔥 Потужний урон</div>
+        <div class="stat-card">🛡️ Високий захист</div>
+        <div class="stat-card">🌪️ Атакує всіма стихіями</div>
+        <div class="stat-card">🐉 Летючий</div>
+    </div>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Бос, який тестує командну роботу та сильних тварин гравця.
+    </div>
+</section>
+
+<!-- =============== Rock Drake =============== -->
+<section id="mob-rockdrake" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🪨 Rock Drake</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/arksurvivalevolved_gamepedia/images/2/26/Dossier_Rock_Drake.png/revision/latest?cb=20181022000020" alt="Rock Drake">
+    <div class="info-box">
+        <p>Rock Drake — літаючий хижак з маскувальними здібностями. Ідеальний для проникнень та PvP.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Літаючий хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Rock Drake Saddle</li>
+        <li><strong>Роль:</strong> PvP, шпигунство</li>
+    </ul>
+    <h3>⚔️ Бойові характеристики</h3>
+    <div class="stat-grid">
+        <div class="stat-card">❤️ Середній HP</div>
+        <div class="stat-card">🦷 Потужний урон</div>
+        <div class="stat-card">🕵️ Маскування</div>
+        <div class="stat-card">🌪️ Летючий</div>
+    </div>
+    <h3>🪤 Приручення</h3>
+    <p>Нокаут-метод. Найкраще заманити в пастку у печерах.</p>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Ідеальний моб для хитрих стратегій, PvP та проникнень.
+    </div>
+</section>
+<!-- =============== Fire Wyvern =============== -->
+<section id="mob-firewyvern" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🔥 Fire Wyvern</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/c/c0/Dossier_Wyvern.jpg/revision/latest?cb=20160902110918&path-prefix=ru" alt="Fire Wyvern">
+    <div class="info-box">
+        <p>Fire Wyvern — вогняна істота, здатна випускати потужний вогняний струмінь. Ідеальна для атаки та оборони бази.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Літаючий хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Яйце/Корм</li>
+        <li><strong>Сідло:</strong> Wyvern Saddle</li>
+        <li><strong>Роль:</strong> PvP, атака, оборона</li>
+    </ul>
+    <h3>⚔️ Бойові характеристики</h3>
+    <div class="stat-grid">
+        <div class="stat-card">🔥 Вогняна атака</div>
+        <div class="stat-card">🛡️ Середній HP</div>
+        <div class="stat-card">🌪️ Летючий</div>
+        <div class="stat-card">🦷 Потужний урон</div>
+    </div>
+    <h3>🪤 Приручення</h3>
+    <p>Вивести яйце або знайти в печерах. Кормом для приручення є Kibble або Raw Meat.</p>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Вогняний летючий хижак, чудовий для нападів і PvP.
+    </div>
+</section>
+
+<!-- =============== Ice Wyvern =============== -->
+<section id="mob-icewyvern" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>❄️ Ice Wyvern</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/c/c0/Dossier_Wyvern.jpg/revision/latest?cb=20160902110918&path-prefix=ru" alt="Ice Wyvern">
+    <div class="info-box">
+        <p>Ice Wyvern — крижана істота з заморожуючою атакою. Використовується для контролю території та PvP.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Літаючий хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Яйце/Корм</li>
+        <li><strong>Сідло:</strong> Wyvern Saddle</li>
+        <li><strong>Роль:</strong> Контроль території, PvP</li>
+    </ul>
+    <h3>⚔️ Бойові характеристики</h3>
+    <div class="stat-grid">
+        <div class="stat-card">❄️ Крижана атака</div>
+        <div class="stat-card">🛡️ Середній HP</div>
+        <div class="stat-card">🌪️ Летючий</div>
+        <div class="stat-card">🦷 Потужний урон</div>
+    </div>
+    <h3>🪤 Приручення</h3>
+    <p>Приручення через яйця або знайдені в світі. Корм — Kibble або Raw Meat.</p>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Ідеальний для заморожування ворогів і контролю PvP-зон.
+    </div>
+</section>
+<!-- =============== Poison Wyvern =============== -->
+<section id="mob-poisonwyvern" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>☣️ Poison Wyvern</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/c/c0/Dossier_Wyvern.jpg/revision/latest?cb=20160902110918&path-prefix=ru" alt="Poison Wyvern">
+    <div class="info-box">
+        <p>Poison Wyvern — летючий хижак з токсичним укусом та кислотною атакою. Ідеальний для PvP і захисту території.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Літаючий хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Яйце/Корм</li>
+        <li><strong>Сідло:</strong> Wyvern Saddle</li>
+        <li><strong>Роль:</strong> PvP, контроль території</li>
+    </ul>
+    <h3>⚔️ Бойові характеристики</h3>
+    <div class="stat-grid">
+        <div class="stat-card">☣️ Токсична атака</div>
+        <div class="stat-card">🛡️ Середній HP</div>
+        <div class="stat-card">🌪️ Летючий</div>
+        <div class="stat-card">🦷 Потужний урон</div>
+    </div>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Моб для PvP та тактичних атак із відстані.
+    </div>
+</section>
+
+<!-- =============== Lightning Wyvern =============== -->
+<section id="mob-lightningwyvern" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>⚡ Lightning Wyvern</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/c/c0/Dossier_Wyvern.jpg/revision/latest?cb=20160902110918&path-prefix=ru" alt="Lightning Wyvern">
+    <div class="info-box">
+        <p>Lightning Wyvern — атакує блискавками. Використовується для PvP та захисту бази від нападників.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Літаючий хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Яйце/Корм</li>
+        <li><strong>Сідло:</strong> Wyvern Saddle</li>
+        <li><strong>Роль:</strong> PvP, захист бази</li>
+    </ul>
+    <h3>⚔️ Бойові характеристики</h3>
+    <div class="stat-grid">
+        <div class="stat-card">⚡ Атака блискавкою</div>
+        <div class="stat-card">🛡️ Середній HP</div>
+        <div class="stat-card">🌪️ Летючий</div>
+        <div class="stat-card">🦷 Потужний урон</div>
+    </div>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Найефективніший для електричних атак та PvP.
+    </div>
+</section>
+
+<!-- =============== Pteranodon =============== -->
+<section id="mob-pteranodon" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🦅 Pteranodon</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/b/b4/Dossier_Pterosaur.png/revision/latest/scale-to-width-down/268?cb=20151116122812&path-prefix=ru" alt="Pteranodon">
+    <div class="info-box">
+        <p>Pteranodon — легкий літаючий транспорт. Використовується для розвідки та транспортування ресурсів.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Літаючий транспорт</li>
+        <li><strong>Темперамент:</strong> Спокійний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут / Корм</li>
+        <li><strong>Сідло:</strong> Pteranodon Saddle</li>
+        <li><strong>Роль:</strong> Транспорт, розвідка</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Ідеальний для швидкого переміщення та збору ресурсів.
+    </div>
+</section>
+
+<!-- =============== Ichtyosaurus =============== -->
+<section id="mob-ichtyosaurus" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🐟 Ichtyosaurus</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/ark-survival-evolved/images/e/ee/Dossier_Ichthy.png/revision/latest/scale-to-width-down/268?cb=20151116122811&path-prefix=ru" alt="Ichtyosaurus">
+    <div class="info-box">
+        <p>Ichtyosaurus — швидка морська тварина. Використовується для перевезення гравця і бою в воді.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Морський хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Ichtyosaurus Saddle</li>
+        <li><strong>Роль:</strong> Морський транспорт, PvP</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Швидкий і маневрений морський хижак для PvP та перевезень.
+    </div>
+</section>
+
+<!-- =============== Carchadontosaurus =============== -->
+<section id="mob-carchadonto" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🦖 Carchadontosaurus</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/arksurvivalevolved_gamepedia/images/7/70/Carcharadontosaurus_Dossier.png/revision/latest?cb=20221107222330" alt="Carchadontosaurus">
+    <div class="info-box">
+        <p>Carchadontosaurus — великий хижак середнього рівня. Використовується для PvE та PvP.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Carcha Saddle</li>
+        <li><strong>Роль:</strong> PvP, PvE</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Надійний хижак для боїв середнього рівня.
+    </div>
+</section>
+
+<!-- =============== Therizinosaurus =============== -->
+<section id="mob-therizinosaurus" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🦖 Therizinosaurus</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/arksurvivalevolved_gamepedia/images/e/e7/Dossier_Therizinosaur.png/revision/latest?cb=20181022000907" alt="Therizinosaurus">
+    <div class="info-box">
+        <p>Therizinosaurus — великий хижак/травоїд із неймовірними кігтями. Ідеальний для захисту та збору ресурсів.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Травоїд/Хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний при загрозі</li>
+        <li><strong>Раціон:</strong> Рослинна їжа / м’ясо</li>
+        <li><strong>Приручення:</strong> Нокаут / Корм</li>
+        <li><strong>Сідло:</strong> Therizino Saddle</li>
+        <li><strong>Роль:</strong> Збір ресурсів, оборона</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Універсальний моб для ресурсів і бою.
+    </div>
+</section>
+
+<!-- =============== Plesiosaurus =============== -->
+<section id="mob-plesiosaurus" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🐬 Plesiosaurus</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/arksurvivalevolved_gamepedia/images/2/27/Dossier_Plesiosaur.png/revision/latest?cb=20230819221918" alt="Plesiosaurus">
+    <div class="info-box">
+        <p>Plesiosaurus — морський хижак середнього рівня. Швидкий і маневрений, підходить для морських досліджень та бою.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Морський хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Plesio Saddle</li>
+        <li><strong>Роль:</strong> Морські бої, транспорт</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Маневрений і швидкий морський хижак для PvE та PvP.
+    </div>
+</section>
+
+<!-- =============== Dunkleosteus =============== -->
+<section id="mob-dunkleosteus" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🐟 Dunkleosteus</h2>
+    <img class="detail-img" src="https://static.wikia.nocookie.net/arksurvivalevolved_gamepedia/images/3/3d/Dossier_Dunkleosteus.png/revision/latest?cb=20181021230617" alt="Dunkleosteus">
+    <div class="info-box">
+        <p>Dunkleosteus — великий морський хижак з потужним укусом. Використовується для PvP та контролю води.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Морський хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Dunk Saddle</li>
+        <li><strong>Роль:</strong> Контроль води, PvP</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Ідеальний для боїв у воді та атаки інших гравців.
+    </div>
+</section>
+
+<!-- =============== Dreadnoughtus =============== -->
+<section id="mob-dreadnoughtus" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🦖 Dreadnoughtus</h2>
+    <img class="detail-img" src="https://ark.wiki.gg/images/thumb/Dossier_Dreadnoughtus.png/320px-Dossier_Dreadnoughtus.png?ee307a" alt="Dreadnoughtus">
+    <div class="info-box">
+        <p>Dreadnoughtus — великий травоїд із високим здоров’ям. Використовується для оборони бази та транспорту ресурсів.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Травоїд</li>
+        <li><strong>Темперамент:</strong> Спокійний</li>
+        <li><strong>Раціон:</strong> Рослинна їжа</li>
+        <li><strong>Приручення:</strong> Корм</li>
+        <li><strong>Сідло:</strong> Dread Saddle</li>
+        <li><strong>Роль:</strong> Оборона, транспорт</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Великий та надійний для оборони та перевезень.
+    </div>
+</section>
+
+<!-- =============== Megaraptor =============== -->
+<section id="mob-megaraptor" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🦖 Megaraptor</h2>
+    <img class="detail-img" src="https://ark.wiki.gg/images/thumb/Dossier_Megaraptor.png/298px-Dossier_Megaraptor.png?198307" alt="Megaraptor">
+    <div class="info-box">
+        <p>Megaraptor — швидкий і небезпечний хижак середнього рівня. Використовується для полювання та PvP.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Mega Saddle</li>
+        <li><strong>Роль:</strong> PvP, полювання</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Швидкий моб для мисливства та боїв середнього рівня.
+    </div>
+</section>
+
+<!-- =============== Ceratosaurus =============== -->
+<section id="mob-ceratosaurus" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🦖 Ceratosaurus</h2>
+    <img class="detail-img" src="https://ark.wiki.gg/images/thumb/Cerato_Dossier.png/298px-Cerato_Dossier.png?aab930" alt="Ceratosaurus">
+    <div class="info-box">
+        <p>Ceratosaurus — середній хижак із сильним укусом. Використовується для полювання та PvE.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Хижак</li>
+        <li><strong>Темперамент:</strong> Агресивний</li>
+        <li><strong>Раціон:</strong> М’ясоїд</li>
+        <li><strong>Приручення:</strong> Нокаут</li>
+        <li><strong>Сідло:</strong> Cera Saddle</li>
+        <li><strong>Роль:</strong> Полювання, PvE</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Надійний середній хижак для полювання та PvE.
+    </div>
+</section>
+
+<!-- =============== Triceratops =============== -->
+<section id="mob-triceratops" class="page">
+    <button class="back" onclick="showPage('mobs')">← Назад</button>
+    <h2>🦕 Triceratops</h2>
+    <img class="detail-img" src="https://ark.wiki.gg/images/thumb/Dossier_Triceratops.png/320px-Dossier_Triceratops.png?a2f92b" alt="Triceratops">
+    <div class="info-box">
+        <p>Triceratops — великий травоїд із потужними рогами. Використовується для захисту та збору ресурсів.</p>
+    </div>
+    <h3>📌 Загальна інформація</h3>
+    <ul class="info-list">
+        <li><strong>Тип:</strong> Травоїд</li>
+        <li><strong>Темперамент:</strong> Спокійний, агресивний при загрозі</li>
+        <li><strong>Раціон:</strong> Рослинна їжа</li>
+        <li><strong>Приручення:</strong> Корм</li>
+        <li><strong>Сідло:</strong> Trike Saddle</li>
+        <li><strong>Роль:</strong> Захист, PvE, збори ресурсів</li>
+    </ul>
+    <div class="info-box highlight">
+        <strong>Висновок:</strong><br>Надійний захисник та збирач ресурсів для бази.
+    </div>
+</section>
+
+<!-- ================= КРАФТИ ================= -->
+<section id="crafts" class="page">
+    <h2>Крафти</h2>
+
+    <div class="controls">
+        <input id="searchCraft" placeholder="Пошук крафту..." onkeyup="searchCrafts()">
+        <div class="filters">
+            <button onclick="filterCrafts('all')">Всі</button>
+            <button onclick="filterCrafts('common')">Common</button>
+            <button onclick="filterCrafts('rare')">Rare</button>
+            <button onclick="filterCrafts('epic')">Epic</button>
+            <button onclick="filterCrafts('legendary')">Legendary</button>
+        </div>
+    </div>
+
+    <div class="grid crafts-grid">
+        <!-- Інструменти -->
+        <button class="card common" data-type="common" onclick="showCraft('stone_pick')">Кам'яна Кірка</button>
+        <button class="card common" data-type="common" onclick="showCraft('stone_hatchet')">Кам'яний Топір</button>
+        <button class="card common" data-type="common" onclick="showCraft('spear')">Коп'я</button>
+        <button class="card rare" data-type="rare" onclick="showCraft('slingshot')">Рогатка</button>
+        <button class="card epic" data-type="epic" onclick="showCraft('bow')">Лук</button>
+        <button class="card epic" data-type="epic" onclick="showCraft('crossbow')">Арбалет</button>
+
+        <!-- Зброя -->
+        <button class="card legendary" data-type="legendary" onclick="showCraft('simple_pistol')">Пістолет</button>
+        <button class="card legendary" data-type="legendary" onclick="showCraft('shotgun')">Дробовик</button>
+        <button class="card legendary" data-type="legendary" onclick="showCraft('longneck_rifle')">Вінтовка</button>
+
+        <!-- Броня -->
+        <button class="card common" data-type="common" onclick="showCraft('cloth_helmet')">Тканевий Шолом</button>
+        <button class="card common" data-type="common" onclick="showCraft('cloth_shirt')">Тканевий Наплічник</button>
+        <button class="card common" data-type="common" onclick="showCraft('cloth_pants')">Тканеві Штани</button>
+        <button class="card common" data-type="common" onclick="showCraft('cloth_boots')">Тканеві Чоботи</button>
+        <button class="card epic" data-type="epic" onclick="showCraft('flak_armor')">Броня Flak</button>
+        <button class="card epic" data-type="epic" onclick="showCraft('metal_armor')">Металева Броня</button>
+        <button class="card legendary" data-type="legendary" onclick="showCraft('riot_armor')">Броня Riot</button>
+
+        <!-- Крафтові станції -->
+        <button class="card rare" data-type="rare" onclick="showCraft('campfire')">Костер</button>
+        <button class="card rare" data-type="rare" onclick="showCraft('cooking_pot')">Пічка</button>
+        <button class="card epic" data-type="epic" onclick="showCraft('mortar_pestle')">Ступка з товкачем</button>
+        <button class="card epic" data-type="epic" onclick="showCraft('chem_bench')">Хімічна Лабораторія</button>
+        <button class="card epic" data-type="epic" onclick="showCraft('smithy')">Кузня</button>
+        <button class="card legendary" data-type="legendary" onclick="showCraft('fabricator')">Фабрикатор</button>
+
+        <!-- Споживчі предмети -->
+        <button class="card common" data-type="common" onclick="showCraft('torch')">Факел</button>
+        <button class="card common" data-type="common" onclick="showCraft('narco')">Наркотик</button>
+        <button class="card common" data-type="common" onclick="showCraft('sparkpowder')">Іскровий Порошок</button>
+        <button class="card common" data-type="common" onclick="showCraft('preserving_salt')">Консервуюча Сіль</button>
+        <button class="card rare" data-type="rare" onclick="showCraft('meat_jerky')">В'ялене М'ясо</button>
+
+        <!-- Додаткові корисні -->
+        <button class="card epic" data-type="epic" onclick="showCraft('bug_repellent')">Засіб від Комах</button>
+        <button class="card epic" data-type="epic" onclick="showCraft('gunpowder')">Порох</button>
+    </div>
+</section>
+<!-- ================= ДЕТАЛЬНІ КРАФТИ ================= -->
+
+<!-- Stone Pick -->
+<section id="craft-stone_pick" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Stone Pick</h2>
+    
+    <p>Базовий інструмент для збору каменю та металу. Потрібен на початку гри.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>10 каменів</li>
+        <li>5 дерев’яних палиць</li>
+    </ul>
+</section>
+
+<!-- Stone Hatchet -->
+<section id="craft-stone_hatchet" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Stone Hatchet</h2>
+    
+    <p>Інструмент для рубки дерев та збору ресурсів. Початковий інструмент для виживання.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>12 каменів</li>
+        <li>6 дерев’яних палиць</li>
+    </ul>
+</section>
+
+<!-- Wooden Club -->
+<section id="craft-wooden_club" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Wooden Club</h2>
+    
+    <p>Проста зброя ближнього бою для захисту від диких істот.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>10 дерев’яних палиць</li>
+        <li>5 каменів</li>
+    </ul>
+</section>
+
+<!-- Spear -->
+<section id="craft-spear" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Spear</h2>
+    
+    <p>Надійна зброя ближнього бою для полювання та оборони.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>3 камені</li>
+        <li>2 дерев’яні палиці</li>
+    </ul>
+</section>
+
+<!-- Slingshot -->
+<section id="craft-slingshot" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Slingshot</h2>
+    
+    <p>Дальня зброя для початкового полювання на невеликих істот.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>15 дерева</li>
+        <li>2 мотузки</li>
+    </ul>
+</section>
+
+<!-- Bow -->
+<section id="craft-bow" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Bow</h2>
+    
+    <p>Дальня зброя для полювання та захисту. Може використовувати різні стріли.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>1 дерево</li>
+        <li>2 мотузки</li>
+    </ul>
+</section>
+
+<!-- Crossbow -->
+<section id="craft-crossbow" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Crossbow</h2>
+    
+    <p>Потужна зброя для середньої дистанції. Використовує стріли та болти.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>25 дерева</li>
+        <li>10 метал</li>
+        <li>3 мотузки</li>
+    </ul>
+</section>
+
+<!-- Simple Pistol -->
+<section id="craft-simple_pistol" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Simple Pistol</h2>
+    
+    <p>Початкова вогнепальна зброя для оборони.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>25 метал</li>
+        <li>15 дерев’яних палиць</li>
+        <li>5 мотузок</li>
+    </ul>
+</section>
+
+<!-- Shotgun -->
+<section id="craft-shotgun" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Shotgun</h2>
+    
+    <p>Потужна зброя ближнього бою. Вбиває великих істот з малого та середнього дистанції.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>50 метал</li>
+        <li>20 дерев’яних палиць</li>
+        <li>10 мотузок</li>
+    </ul>
+</section>
+
+<!-- Longneck Rifle -->
+<section id="craft-longneck_rifle" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Longneck Rifle</h2>
+    
+    <p>Дальня зброя для полювання на великих істот та точного прицілювання.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>75 метал</li>
+        <li>30 дерев’яних палиць</li>
+        <li>15 мотузок</li>
+    </ul>
+</section>
+
+<!-- Cloth Armor -->
+<section id="craft-cloth_helmet" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Cloth Helmet</h2>
+    
+    <p>Проста броня, що захищає голову від дрібних атак.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>15 тканини</li>
+    </ul>
+</section>
+
+<section id="craft-cloth_shirt" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Cloth Shirt</h2>
+    
+    <p>Проста броня для тіла, початкова для виживання.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>30 тканини</li>
+    </ul>
+</section>
+
+<section id="craft-cloth_pants" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Cloth Pants</h2>
+    
+    <p>Проста броня для ніг, початковий комплект.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>25 тканини</li>
+    </ul>
+</section>
+
+<section id="craft-cloth_boots" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Cloth Boots</h2>
+    
+    <p>Захист для стоп, частина початкового сету.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>20 тканини</li>
+    </ul>
+</section>
+
+<!-- Flak Armor -->
+<section id="craft-flak_armor" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Flak Armor</h2>
+    
+    <p>Середній рівень броні, добре захищає від стріли та ударів.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>30 метал</li>
+        <li>20 шкіри</li>
+    </ul>
+</section>
+
+<!-- Metal Armor -->
+<section id="craft-metal_armor" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Metal Armor</h2>
+    
+    <p>Надійний комплект броні для середніх та пізніх рівнів гри.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>50 метал</li>
+        <li>40 шкіри</li>
+    </ul>
+</section>
+
+<!-- Riot Armor -->
+<section id="craft-riot_armor" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Riot Armor</h2>
+    
+    <p>Високий рівень броні для PvP і проти великих істот.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>80 метал</li>
+        <li>50 шкіри</li>
+        <li>20 електронних компонентів</li>
+    </ul>
+</section>
+
+<!-- Campfire -->
+<section id="craft-campfire" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Campfire</h2>
+    
+    <p>Вогнище для приготування їжі та відлякування хижаків.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>8 каменів</li>
+        <li>4 дерев’яні палиці</li>
+    </ul>
+</section>
+
+<!-- Cooking Pot -->
+<section id="craft-cooking_pot" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Cooking Pot</h2>
+    
+    <p>Станція для приготування складних страв та медикаментів.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>12 метал</li>
+        <li>8 каменів</li>
+        <li>4 мотузки</li>
+    </ul>
+</section>
+
+<!-- Mortar and Pestle -->
+<section id="craft-mortar_pestle" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Mortar and Pestle</h2>
+    
+    <p>Використовується для створення медикаментів, наркотиків і порошків.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>65 каменю</li>
+        <li>15 шкіри</li>
+    </ul>
+</section>
+
+<!-- Chemistry Bench -->
+<section id="craft-chem_bench" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Chemistry Bench</h2>
+    
+    <p>Станція для створення складних хімічних речовин та медикаментів.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>50 метал</li>
+        <li>35 каменю</li>
+        <li>20 електронних компонентів</li>
+    </ul>
+</section>
+
+<!-- Smithy -->
+<section id="craft-smithy" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Smithy</h2>
+    
+    <p>Станція для обробки металу та створення броні і зброї.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>50 метал</li>
+        <li>20 каменю</li>
+        <li>15 дерев’яних палиць</li>
+    </ul>
+</section>
+
+<!-- Fabricator -->
+<section id="craft-fabricator" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Fabricator</h2>
+    
+    <p>Високотехнологічна станція для створення електронних предметів та боєприпасів.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>50 метал</li>
+        <li>35 електронних компонентів</li>
+        <li>20 кременю</li>
+    </ul>
+</section>
+
+<!-- Waterskin -->
+<section id="craft-waterskin" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Waterskin</h2>
+    
+    <p>Контейнер для води для виживання у світі ARK.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>5 шкіри</li>
+        <li>2 мотузки</li>
+    </ul>
+</section>
+
+<!-- Torch -->
+<section id="craft-torch" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Torch</h2>
+    
+    <p>Джерело світла та захист від нічних хижаків.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>2 палиці</li>
+        <li>1 камінь</li>
+    </ul>
+</section>
+
+<!-- Narcotic -->
+<section id="craft-narco" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Narcotic</h2>
+    
+    <p>Слабкий транквілізатор для тварин і хижаків.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>1 наркотичний засіб (Narcoberry)</li>
+        <li>1 спаркпудра (Sparkpowder)</li>
+    </ul>
+</section>
+
+<!-- Sparkpowder -->
+<section id="craft-sparkpowder" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Sparkpowder</h2>
+    
+    <p>Порошок для створення боєприпасів та вибухових матеріалів.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>1 кремінь (Flint)</li>
+    </ul>
+</section>
+
+<!-- Preserving Salt -->
+<section id="craft-preserving_salt" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Preserving Salt</h2>
+    
+    <p>Використовується для створення джеркі та збереження їжі.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>1 кремінь (Flint)</li>
+        <li>1 натрій (Sodium)</li>
+    </ul>
+</section>
+
+<!-- Meat Jerky -->
+<section id="craft-meat_jerky" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Meat Jerky</h2>
+    
+    <p>Консервоване м’ясо, яке зберігається довго і підвищує виживання.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>10 м’яса (Cooked Meat)</li>
+        <li>2 Preserving Salt</li>
+    </ul>
+</section>
+
+<!-- Bug Repellent -->
+<section id="craft-bug_repellent" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Bug Repellent</h2>
+    
+    <p>Відлякує комах і підвищує комфорт виживання в джунглях.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>5 Сапропелу (Sapropel)</li>
+        <li>5 Рослинного масла (Plant Oil)</li>
+    </ul>
+</section>
+
+<!-- Gunpowder -->
+<section id="craft-gunpowder" class="page">
+    <button class="back" onclick="showPage('crafts')">← Назад</button>
+    <h2>Gunpowder</h2>
+    <p>Основна речовина для створення боєприпасів та вибухових предметів.</p>
+    <h3>📌 Рецепт:</h3>
+    <ul>
+        <li>1 Sparkpowder</li>
+        <li>1 Charcoal</li>
+    </ul>
+</section>
+
+
+
+
+</body>
+</html>
